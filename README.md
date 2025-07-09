@@ -17,3 +17,8 @@ This project contains a Python script, `search.py`, designed to assist with Open
 1. Run the script:
    ```bash
    python search.py
+
+## Resources used
+    Co-pilot, ChatGPT, and other AI tools.
+    API's and web scraping techniques will be added in the future.
+    Tools from Bellingcat, OSINT Framework, and other OSINT resources.

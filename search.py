@@ -1,5 +1,19 @@
 import webbrowser
 import urllib.parse
+  
+  
+"""
+Todo: - Add error handling for user inputs
+      - Add more websites to search
+      - Add functionality to save results to a file
+      - Add functionality to scrape results from the websites
+      - Add some free APIs to search for people/domains/and etc
+      - Add functionality to search for people by email
+      - Add functionality to search for people by phone number
+      
+"""  
+  
+  
     
 # This script searches for a specific website in a list of websites and prints the result.
 First_Name = input('Enter the targets first name:(Required) ')

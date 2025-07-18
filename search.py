@@ -28,6 +28,13 @@ location = f"{city}, {state}"
 birthdate = input('Enter the targets birthdate: (Optional leave blank hit enter) ')
 phone_number = input('Enter the targets phone number: (Optional leave blank hit enter) ')
 
+
+"""Once we gather that information could I pivot the search and enter in new info to continue this research.. 
+Then save to a doc or pdf and can put in a route to a file so I can get stuff collected together
+
+"""
+
+
 results = f"{name} {location} {birthdate}"
 results = urllib.parse.quote(results)
 websites = [
@@ -36,6 +43,9 @@ websites = [
     'https://yandex.com/search/?text=' + results,
     'https://www.duckduckgo.com/?q=' + results,
     f'https://www.spokeo.com/search/{name_spokeo}?age_range={age_range}&city={city}&phone={phone_number}&state={state}'
+    f'https://www.thisnumber.com/{phone_number}' 
+    'https://www.whitepages.com/name/' + name + '/' + location,
+    'https://www.anywho.com/people' + name + '/' + location,
     
 ]
 

@@ -29,12 +29,24 @@ birthdate = input('Enter the targets birthdate: (Optional leave blank hit enter)
 phone_number = input('Enter the targets phone number: (Optional leave blank hit enter) ')
 
 
+
+
 """Once we gather that information could I pivot the search and enter in new info to continue this research.. 
 Then save to a doc or pdf and can put in a route to a file so I can get stuff collected together
 
 """
 
-
+savedResults= {
+    "First Name": First_Name, 
+    "Last Name": Last_Name, 
+    "Address": address, 
+    "City": city, 
+    "State": state, 
+    "Phone Number": phone_number,
+    "Age Range": age_range, 
+    "Location": location, 
+    "Birthdate": birthdate
+}
 results = f"{name} {location} {birthdate}"
 results = urllib.parse.quote(results)
 websites = [
@@ -47,9 +59,16 @@ websites = [
     'https://www.whitepages.com/name/' + name + '/' + location,
     'https://www.anywho.com/people' + name + '/' + location,
     
+    
 ]
 
-
+filename = f"Investigation_{First_Name}_{Last_Name}.txt"
+filepath = f"c:\\Users\\JamesJPDumas\\Desktop\\{filename}"
+'Save this to a file /desktop'
+with open(filepath, "w") as file:
+    for key, value in savedResults.items():
+        file.write(f"{key}: {value}\n")
 
 for site in websites:
     webbrowser.open_new_tab(site)
+

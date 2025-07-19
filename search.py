@@ -1,4 +1,3 @@
-import webbrowser
 import urllib.parse
   
   
@@ -66,9 +65,14 @@ filename = f"Investigation_{First_Name}_{Last_Name}.txt"
 filepath = f"c:\\Users\\JamesJPDumas\\Desktop\\{filename}"
 'Save this to a file /desktop'
 with open(filepath, "w") as file:
+    file.write("=== Information ===")
     for key, value in savedResults.items():
         file.write(f"{key}: {value}\n")
 
-for site in websites:
-    webbrowser.open_new_tab(site)
+    file.write("==== Search Results ====\n")
+    for site in websites:
+        file.write(site + "\n")
+
+print(f"[+] Investigation save to: {filepath}")
+
 

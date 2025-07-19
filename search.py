@@ -26,6 +26,7 @@ age_range = input('Enter the targets age range: (For people searches that requir
 location = f"{city}, {state}" 
 birthdate = input('Enter the targets birthdate: (Optional leave blank hit enter) ')
 phone_number = input('Enter the targets phone number: (Optional leave blank hit enter) ')
+username = input("Enter a known or suspected username for further lookup (Optional): ")
 
 
 
@@ -61,6 +62,16 @@ websites = [
     
 ]
 
+
+social_lookup_links = []
+if username:
+    encoded_username = urllib.parse.quote(username)
+    social_lookup_links = [
+        f"https://namechk.com/{encoded_username}",
+        f"https://www.google.com/search?q={encoded_username}",
+        f"https://whatsmyname.app/?q={encoded_username}",
+    ]    
+
 filename = f"Investigation_{First_Name}_{Last_Name}.txt"
 filepath = f"c:\\Users\\JamesJPDumas\\Desktop\\{filename}"
 'Save this to a file /desktop'
@@ -68,10 +79,17 @@ with open(filepath, "w") as file:
     file.write("=== Information ===")
     for key, value in savedResults.items():
         file.write(f"{key}: {value}\n")
+        file.write("=============================\n")
 
     file.write("==== Search Results ====\n")
     for site in websites:
         file.write(site + "\n")
+        file.write("=============================\n")
+
+    file.write("=== User Name ===\n \n")
+    for social in social_lookup_links:
+        file.write(social + "\n" )
+        file.write("=============================\n")
 
 print(f"[+] Investigation save to: {filepath}")
 
